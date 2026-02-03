@@ -14,8 +14,23 @@ struct ContentView: View {
                 .imageScale(.large)
                 .foregroundStyle(.tint)
             Text("Hello, world!")
+                .fontWidth(.expanded)
+                .fontWeight(.bold)
+            Text("Hello, world!11")
+                .fontWidth(.expanded)
+                .fontWeight(.bold)
+            Text("Hello, world!22")
+                .fontWidth(.expanded)
+                .fontWeight(.bold)
+            Button("버튼", action: {
+                buttonF()
+            })
         }
         .padding()
+    }
+    
+    func buttonF() {
+        print("click")
     }
 }
 
