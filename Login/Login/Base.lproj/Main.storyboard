@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="24506" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="22505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="24504"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22504"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -17,17 +17,15 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="아이디를 입력해 주세요" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="lr0-ir-38O">
-                                <rect key="frame" x="16" y="174" width="157" height="34"/>
+                                <rect key="frame" x="16" y="114" width="361" height="34"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" keyboardType="emailAddress"/>
-                            </textField>
-                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="비밀번호를 입력해 주세요" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="s8f-aN-Gjp">
-                                <rect key="frame" x="16" y="232" width="361" height="34"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
+                                <textInputTraits key="textInputTraits" keyboardType="emailAddress" returnKeyType="done"/>
+                                <connections>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="7Qr-0m-Weh"/>
+                                </connections>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bUf-hM-5Nu">
-                                <rect key="frame" x="16" y="305" width="361" height="35"/>
+                                <rect key="frame" x="16" y="246" width="361" height="35"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="filled" title="Login"/>
                                 <connections>
@@ -35,24 +33,32 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="계정을 입력하세요" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aEf-qq-LzH">
-                                <rect key="frame" x="16" y="383" width="361" height="41"/>
+                                <rect key="frame" x="16" y="324" width="361" height="41"/>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleTitle0"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="비밀번호를 입력해 주세요" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="s8f-aN-Gjp">
+                                <rect key="frame" x="16" y="173" width="361" height="34"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
+                                <connections>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="aif-cP-Kuy"/>
+                                </connections>
+                            </textField>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="s8f-aN-Gjp" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="3OZ-Ca-rMa"/>
                             <constraint firstItem="bUf-hM-5Nu" firstAttribute="top" secondItem="s8f-aN-Gjp" secondAttribute="bottom" constant="39" id="98l-WA-ZmM"/>
                             <constraint firstItem="bUf-hM-5Nu" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="9aR-en-Adu"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="s8f-aN-Gjp" secondAttribute="trailing" constant="16" id="DAL-qp-GLe"/>
-                            <constraint firstItem="s8f-aN-Gjp" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="HZ6-SY-oEr"/>
                             <constraint firstItem="lr0-ir-38O" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="56" id="VEU-4h-Cli"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="bUf-hM-5Nu" secondAttribute="trailing" constant="16" id="WQk-Zb-ACD"/>
                             <constraint firstItem="aEf-qq-LzH" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="YZU-VE-WS3"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="aEf-qq-LzH" secondAttribute="trailing" constant="16" id="cnS-7n-UeB"/>
                             <constraint firstItem="aEf-qq-LzH" firstAttribute="top" secondItem="bUf-hM-5Nu" secondAttribute="bottom" constant="43" id="djY-ss-tQZ"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="s8f-aN-Gjp" secondAttribute="trailing" constant="16" id="gMR-7V-2fI"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="lr0-ir-38O" secondAttribute="trailing" constant="16" id="oDC-7W-Uyo"/>
                             <constraint firstItem="s8f-aN-Gjp" firstAttribute="top" secondItem="lr0-ir-38O" secondAttribute="bottom" constant="24" id="p6w-iV-QgJ"/>
                             <constraint firstItem="lr0-ir-38O" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="sEI-Tp-1ep"/>
