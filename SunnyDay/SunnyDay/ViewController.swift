@@ -2,7 +2,7 @@
 //  ViewController.swift
 //  SunnyDay
 //
-//  Created by 한서영 on 2026/02/04.
+//  Created by 김유진 on 2026/02/04.
 //
 
 import UIKit
@@ -17,43 +17,56 @@ class ViewController: UIViewController {
     
     @IBOutlet weak var descriptionLabel: UILabel!
     
-    func getWeatherImage(matching weather: String) -> UIImage? {
-        switch weather {
-        case "맑음" :
-            return UIImage(named: "sun")
-        case "흐림" :
-            return UIImage(named: "cloud 1")
-        case "눈":
-            return UIImage(named: "thermometer-2")
-        case "비":
-            return UIImage(named: "cloud-4")
-        default:
-            return nil
-        }
-    }
-    func getDescription(matching temperature: Int) -> String? {
-        switch temperature {
-        case ..<(-10):
-            return "이불 밖은 위험해요"
-        case -10 ... 10:
-            return "두툼한 패딩을 챙기세요"
-        case 11 ... 20:
-            return "일교차를 조심하세요"
-        case 21 ... 30:
-            return  "여름이 다가오고 있어요"
-        case 31...:
-            return  "XX 여름"
-        default:
-            return nil
-        }
-    }
+//    func getWeatherImage(matching weather: String) -> UIImage? {
+//        switch weather {
+//        case "맑음" :
+//            return UIImage(named: "sun")
+//        case "흐림" :
+//            return UIImage(named: "cloud 1")
+//        case "눈":
+//            return UIImage(named: "thermometer-2")
+//        case "비":
+//            return UIImage(named: "cloud-4")
+//        default:
+//            return nil
+//        }
+//    }
+//    func getDescription(matching temperature: Int) -> String? {
+//        switch temperature {
+//        case ..<(-10):
+//            return "이불 밖은 위험해요"
+//        case -10 ... 10:
+//            return "두툼한 패딩을 챙기세요"
+//        case 11 ... 20:
+//            return "일교차를 조심하세요"
+//        case 21 ... 30:
+//            return  "여름이 다가오고 있어요"
+//        case 31...:
+//            return  "XX 여름"
+//        default:
+//            return nil
+//        }
+//    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         //코드를 넣으면 실행
         
-        let weather  = ["맑음", "흐림", "눈", "비"].randomElement() ?? "맑음"
+        let weather  = [Weather.clear, .cloudy, .rain, .snow].randomElement() ?? .clear
         let temperature = Int.random(in: -20 ... 38)
+        
+        
+        weatherImageView.image = weather.image
+        statusLabel.text = weather.rawValue
+        temperatureLabel.text = "\(temperature)"
+        descriptionLabel.text = weather.getDescription(matching: temperature)
+        
+        
+        
+        
+        
+        
+        
         
         /*
          if weather == "흐림" {
@@ -80,11 +93,6 @@ class ViewController: UIViewController {
          default:
          break
          }*/
-        
-        weatherImageView.image = getWeatherImage(matching: weather)
-        statusLabel.text = weather
-        temperatureLabel.text = "\(temperature)"
-        descriptionLabel.text = getDescription(matching: temperature)
         
         /*
          if temperature < -10 {
