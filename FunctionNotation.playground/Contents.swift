@@ -26,4 +26,4 @@ func add(a:Int, b: Int) -> Int {
     return a + b
 }
 
-let d = add(a:b:)
+let d = add(a:b:) 
